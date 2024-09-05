@@ -1,4 +1,4 @@
-ï»¿
+
 using ApiTestDanielHernandez.Data;
 using ApiTestDanielHernandez.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -36,7 +36,7 @@ public class UserController: ControllerBase
         try
         {
             _userRepository.AddUser(user);
-            return Ok(new { message = "User registered successfully" });
+            return Ok(new { message = "Usuario registrado con exito!" });
         }
         catch (Exception ex)
         {
@@ -45,7 +45,7 @@ public class UserController: ControllerBase
     }
     
     [HttpGet("{id}")]
-    [Authorize]  // Asegura que solo usuarios autenticados puedan acceder a este mÃ©todo
+    [Authorize]  // Asegura que solo usuarios autenticados puedan acceder a este método
     public IActionResult GetUserById(int id)
     {
         var user = _userRepository.obtenerUsuarioXId(id);
@@ -57,7 +57,7 @@ public class UserController: ControllerBase
     }
     
     [HttpDelete("{id}")]
-    [Authorize] // Asegura que solo usuarios autenticados puedan acceder a este mÃ©todo
+    [Authorize] // Asegura que solo usuarios autenticados puedan acceder a este método
     public IActionResult DeleteUser(int id)
     {
         var userExists = _userRepository.obtenerUsuarioXId(id);
